@@ -84,8 +84,9 @@
         </li>
     </ul>
     <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="addressData.js"></script>
     <script type="text/javascript">
-    var addressData = [
+    /*var addressData = [
                         ['2','北京',[
                                         ['10','北京',
                                                         [
@@ -108,10 +109,10 @@
                                         ]
                                     ]
                         ]
-                    ];
+                    ];*/
 $(function(){
     //加载省数据
-    cookData();
+    cookData(addressData);
 
     $(".input_wrap select").change(function () {
             console.log(this["selectedIndex"], addressData);
