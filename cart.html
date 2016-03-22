@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>购物车</title>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="cart.css"> 
+    <style type="text/css">
+    div, dl, dt, dd, ul, ol, li, i, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, header, nav, section, article, footer, aside {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    list-style-type: none;
+}
+    .add_address_container .custom-info {
+    background: #fff;
+    margin-bottom: 0;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    .add_address_container .custom-info li {
+    padding: 12px;
+    }
+    .add_address_container .list-group-item {
+        overflow: hidden;
+        padding: 12px;
+        margin-right: 0;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        -webkit-user-select: text;
+    }
+    label {
+        float: left;
+        color: #666;
+        font-size: 14px;
+        margin-right: 6px;
+        line-height: 20px;
+        display: inline-block;
+        vertical-align: bottom;
+        margin-top: 1px;
+    }
+    .input_wrap {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+    select {
+        box-sizing: border-box;
+        border: none;
+        font-size: 14px;
+        color: #333;
+        -webkit-appearance: none;
+        border-radius: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        line-height: 20px;
+    }
+    </style>
+</head>
+<body>
+    <ul class="custom-info">
+        <li class="list-group-item">
+            <div class="row">
+                <label for="selProvinces_0">所在地区:</label>
+                <div class="input_wrap">
+                    <input type="hidden" value="1" name="country">
+                    <select name="province" id="selProvinces"  data-url="jsonRegion.json" style="background-color: #eae9e9;">
+                        
+                </select>
+                    <select name="city" id="selCities"  style="background-color: #eae9e9;">
+                        
+                    </select>
+                    <select name="district" id="selDistricts" style="background-color: #eae9e9;">
+                        
+                    </select>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+    var addressData = [
+                        ['2','北京',[
+                                        ['10','北京',
+                                                        [
+                                                            ['100','东城区'],
+                                                            ['100','海淀区']
+                                                        ]
+                                        ]
+                                    ]
+                        ],
+                        ['3','河北',[
+                                        ['20','石家庄',[
+                                                            ['200','晋州'],
+                                                            ['201','鹿泉']
+                                                        ]
+                                        ],
+                                        ['21','保定',[
+                                                        ['300','宁晋'],
+                                                        ['301','汇得']
+                                                     ]
+                                        ]
+                                    ]
+                        ]
+                    ];
+$(function(){
+    //加载省数据
+    cookData();
+
+    $(".input_wrap select").change(function () {
+            console.log(this["selectedIndex"], addressData);
+            var name = $(this).attr("name"), index = $(this).val();
+            if (name == "province" && index > 0) {
+                selectProvince(index);
+            } else if (name == "city" && index > 0) {
+                selectCity(index);
+            }
+        });
+
+});
+ /*
+ 加载数据
+ */           
+function cookData(){
+    var opt = $("<option></option>").text("请选择省").val(0);
+    $("#selProvinces").append(opt);
+    var opt = $("<option></option>").text("请选择区").val(0);
+    $("#selDistricts").append(opt);
+    var opt = $("<option></option>").text("请选择市").val(0);
+    $("#selCities").append(opt);
+    for (var i = 0, d; d = addressData[i++];) {
+        var opt = $("<option></option>").text(d[1]).val(d[0]);
+        $("#selProvinces").append(opt);
+    }
+}
+
+
+function selectProvince(index){
+    var proContainer =$("#selProvinces"), cityContainer = $("#selCities"), disContainer = $("#selDistricts");
+    for (var i = 0, d; d = addressData[i++];) {
+        if (d[0] == index) {
+            currentCityList = d[2];
+            break;
+        }
+    }
+    cityContainer.empty();
+    disContainer.empty();
+    var opt = $("<option></option>").text("请选择区").val(0);
+    disContainer.append(opt);
+    var opt = $("<option></option>").text("请选择市").val(0);
+    cityContainer.append(opt);
+    for (var i = 0, d; d = currentCityList[i++];) {
+        var opt = $("<option></option>").text(d[1]).val(d[0]);
+        cityContainer.append(opt);
+    }
+}
+
+function selectCity(index){
+    var proContainer =$("#selProvinces"), cityContainer = $("#selCities"), disContainer = $("#selDistricts");
+    for (var i = 0, d; d = currentCityList[i++];) {
+        if (d[0] == index) {
+            currentDisList = d[2];
+            break;
+        }
+    }
+    disContainer.empty();
+    var opt = $("<option></option>").text("请选择区").val(0);
+    disContainer.append(opt);
+    for (var i = 0, d; d = currentDisList[i++];) {
+        var opt = $("<option></option>").text(d[1]).val(d[0]);
+        disContainer.append(opt);
+    }
+}
+    </script>  
+</body>
+</html>

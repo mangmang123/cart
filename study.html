@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>学习</title>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telephone=no" />
+    <link type="image/x-icon" href="hjzlogo.png" rel="shortcut icon">
+    <style type="text/css">
+    *{
+		padding: 0px;
+		margin: 0px;
+		border: 0px;
+	}
+	html{
+		height: 100%;
+	}
+	body{
+		height: 100%;
+		max-width: 600px;
+		margin:auto;
+		font-family: "微软雅黑", Helvetica, Arial, sans-serif;
+	}
+    .download{
+	    height: 60px;
+	    color: #343434;
+	    padding: 10px 10px;
+	    border-bottom: 1px solid #343434;
+	}
+	.des{
+	    float: left;
+	    height: 60px;
+	    width: 24%;
+	}
+	.logoPic{
+	    float: left;
+	    height: 60px;
+	    width: 60px;
+	    margin-right: 10px;
+	}
+	.logoPic>img{
+	    width: 100%;
+	}
+	.company{
+	    line-height: 30px;
+	    text-align: center;
+	    font-size: 1.0em;
+	}
+	.goLoad{
+        line-height: 25px;
+	    max-width: 57%;
+	    padding: 0 5px;
+	    text-align: center;
+	    color: #21be7a;
+	    border: 1px solid #21be7a;
+	    border-radius: 3px;
+	    margin-left: auto;
+	    margin-right: auto;
+        margin-top: 3px;
+	}
+	.right{
+		float: left;
+		width: 76%;
+		text-align: center;
+	}
+	.content{
+		padding-left: 2px;
+		margin-bottom: 20px;
+	}
+	.rectangle{
+	    float: left;
+	    width: 33%; 
+	}
+	.square{
+	    width: 65%;
+	    border: 1px solid black;
+	    margin-left: 17%;
+	    margin-right: 17%;
+	    margin-top: 23px;
+	    height: 76px;
+	}
+	.square-name{
+		text-align: center;
+	}
+    .clearfix:after{
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+    </style>
+</head>
+<body>
+	<div class="download clearfix">
+			<div class="des">
+				<div class="logoPic">
+					<img src="hjzlogo1.png">		
+				</div>
+			</div>
+			<div class="right">
+			<p class="company">好家长，手机上的免费家教机</p>
+			<div class="goLoad">免费下载</div>
+			</div>
+	</div>
+	<hr>
+	<div class="content clearfix">
+		<div class="rectangle" id="practice">
+			<div class="square">
+
+			</div>
+			<p class="square-name">专项练习</p>
+		</div>
+		<div class="rectangle" id="count">
+			<div class="square">
+
+			</div>
+			<p class="square-name">口算</p>
+		</div>
+		<div class="rectangle" id="pk">
+			<div class="square">
+
+			</div>
+			<p class="square-name">全球PK</p>
+		</div>
+		<div class="rectangle"  id="chin-knowledge">
+			<div class="square">
+
+			</div>
+			<p class="square-name">语文知识</p>
+		</div>
+		<div class="rectangle" id="math-knowledge">
+			<div class="square">
+
+			</div>
+			<p class="square-name">数学知识</p>
+		</div>
+		<div class="rectangle" id="eng-knowledge">
+			<div class="square">
+
+			</div>
+			<p class="square-name">英语知识</p>
+		</div>
+		<div class="rectangle" id="chin-video">
+			<div class="square">
+
+			</div>
+			<p class="square-name">语文视频</p>
+		</div>
+		<div class="rectangle" id="math-video">
+			<div class="square">
+
+			</div>
+			<p class="square-name">数学视频</p>
+		</div>
+		<div class="rectangle" id="eng-video">
+			<div class="square">
+
+			</div>
+			<p class="square-name">英语视频</p>
+		</div>
+		<div class="rectangle" id="chin-books">
+			<div class="square">
+
+			</div>
+			<p class="square-name">中文绘本</p>
+		</div>
+		<div class="rectangle" id="eng-books">
+			<div class="square">
+
+			</div>
+			<p class="square-name">英语绘本</p>
+		</div>
+	</div>
+<script type="text/javascript" src="zepto.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#pk').attr('href','http://www.haojiazhang123.com/share/PK/pk_2.9_share.html?web=ok&uid=57674');
+	$('#count').attr('herf','http://arithmaticking.sinaapp.com/?from=singlemessage&isappinstalled=1');
+	$("#pk").on("click",function(){
+        window.open($(this).attr("href"), "_self");
+        return false;
+    });
+    $("#count").on("click",function(){
+        window.open($(this).attr("href"), "_self");
+        return false;
+    });
+
+});
+</script>
+</body>
+
+</html>
