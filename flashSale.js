@@ -56,6 +56,7 @@ function Today(){
 		$('.tomorrow').removeClass('select').addClass('unselect');
 		
 		//滑动效果
+		$('.swiper-wrapper').css();
 		$('.left').removeClass('showRight').addClass('showLeft');
 		$('.right').removeClass('showRight').addClass('showLeft');
 		setTimeout(function(){
