@@ -40,12 +40,7 @@ function Tomorrow(){
 		$('.today').removeClass('select').addClass('unselect');
 		
 		//滑动效果
-		$('.left').removeClass('showLeft').addClass('showRight');
-		$('.right').removeClass('showLeft').addClass('showRight');
-		setTimeout(function(){
-			//返回顶部
-			window.scrollTo(0,0);
-		},200);
+		swiper.slideNext();
 		
 	}
 }
@@ -56,13 +51,7 @@ function Today(){
 		$('.tomorrow').removeClass('select').addClass('unselect');
 		
 		//滑动效果
-		$('.swiper-wrapper').css();
-		$('.left').removeClass('showRight').addClass('showLeft');
-		$('.right').removeClass('showRight').addClass('showLeft');
-		setTimeout(function(){
-			//返回顶部
-			window.scrollTo(0,0);
-		},200);
+		swiper.slidePrev();
 		
 	}
 }
