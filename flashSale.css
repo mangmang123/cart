@@ -1,0 +1,285 @@
+/*basic reset*/
+div, dl, dt, dd, ul, ol, li, i, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, header, nav, section, article, footer, aside {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    list-style-type: none;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	max-width: 600px;
+	margin: auto;
+	font-family: "微软雅黑", Helvetica, Arial, sans-serif;
+	background-color: #f7f7f7;
+	color: #343434;
+    /*overflow-x: hidden;*/
+}
+a,a:focus,a:hover,a:active,a:visited{
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+    tap-highlight-color:rgba(0,0,0,0);
+    tap-highlight-color:transparent;
+}
+a:hover{
+    cursor: pointer;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+header{
+    background-color: #fff;
+}
+
+/*清除浮动*/
+.clearfix:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/*顶部切换今日明日样式*/
+header{
+    position: fixed;
+    /*height: 40px;*/
+    width: 100%;
+    z-index: 100;
+}
+.mainSelect {
+    border-top: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    /* border-bottom: 1px solid #C18484; */
+    height: 35px;
+    line-height: 21px;
+    width: 100%;
+    background-color: #fff;
+    padding: 7px 0px;
+}
+.mainSelect>li{
+    float: left;
+    text-align: center;
+}
+.today ,.tomorrow{
+    width: 50%;
+}
+.line{
+
+}
+.mainSelect>li:first-child{
+    margin-left: -1px;
+    border-right: 1px solid #d0d0d0;
+}
+
+/*选中今日或明日的样式*/
+.unselect{
+    color: #343434;
+}
+.select{
+    color: #ff393a;
+}
+/*200%的商品列表*/
+.main{
+    width: 100%;
+    /*padding-top: 40px;*/
+    position: relative;
+    overflow-x:hidden;
+    z-index: 1;
+    height: 100%;
+}
+
+.left{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    /*background-color: #B19F9F;*/
+    /*height: 1500px;*/
+    overflow: hidden;
+    padding-top: 36px
+}
+.right{
+    position: relative;
+    left: 100%;
+    width: 100%;
+    /*background-color: #C79090;*/
+    /*height: 1500px;*/
+    overflow: hidden;
+    padding-top: 36px
+}
+/*滑动样式*/
+.showLeft{
+    transform: translate(0,0);
+    transition: 300ms;
+    -webkit-transform: translate(0,0);
+    -webkit-transition: 300ms;
+    -o-transform: translate(0,0);
+    -o-transition: 300ms;
+    -moz-transform: translate(0,0);
+    -moz-transition: 300ms;
+    -ms-transform: translate(0,0);
+    -ms-transition: 300ms;
+
+}
+.showRight{
+    transform: translate(-100%,0);
+    transition: 300ms;
+    -webkit-transform: translate(-100%,0);
+    -webkit-transition: 300ms;
+    -o-transform: translate(-100%,0);
+    -o-transition: 300ms;
+    -moz-transform: translate(-100%,0);
+    -moz-transition: 300ms;
+    -ms-transform: translate(-100%,0);
+    -ms-transition: 300ms;
+}
+/*今日抢购倒计时栏目*/
+.header{
+    height: 34px;
+    box-sizing: border-box;
+    padding: 7px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    border-left: 5px solid #ff393a;
+    width: 100%;
+    background-color: #fff;
+    margin: 5px 0px 0px 0px;
+}
+.time{
+    float: left;
+}
+.free{
+    float: left;
+    box-sizing: border-box;
+    border: 1px solid #ff393a;
+    border-radius: 3px;
+    margin-top: -1px;
+    margin-left: 10px;
+    font-size: 12px;
+    width: 60px;
+    text-align: center;
+    height: 20px;
+    line-height: 19px;
+    color: #ff393a;
+}
+.countdown{
+    float: right;
+}
+#TodayHour,#Todaymin,#ToddaySec,#TomHour,#Tommin,#Tomsec {
+    border: 1px solid black;
+    font-size: 13px;
+    margin-right: 2px;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    padding: 0px 3px;
+}
+#TomHour,#TodayHour{
+    margin-left: 5px;
+}
+/*明日抢购倒计时栏目*/
+/*商品列表*/
+.goodList{
+   /* height: 1500px;*/
+}
+.goodItem{
+    position: relative;
+    padding: 14px 12px 14px 21px;
+    font-size: 12px;
+    background-color: #fff;
+    border-bottom: #e8e8e8 solid 1px;
+    border-top: #e8e8e8 solid 1px;
+    margin-top: 5px;
+}
+.picContainer{
+    position: relative;
+    float: left;
+    padding: 0 12px;
+    margin-left: -20px;
+}
+.goodImg{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #f1f1f1;
+}
+.rightContainer{
+    margin-left: 85px;
+}
+.goodTitle{
+    height: 34px;
+    line-height: 17px;
+    font-size: 14px;
+    text-overflow:ellipsis;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow: hidden;
+}
+/*价格和立即抢购*/
+.goodDetail{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    padding-top: 13px;
+}
+.leftSide{
+    float: left;
+    color: #ff393a;
+    font-size: 18px;
+}
+.currentPrice,.originalPrice{
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+.originalPrice{
+    color: #6B5C5C;
+    font-size: 13px;
+}
+.leftSide>p{
+    font-size: 13px;
+    color: #343434;
+}
+.buy{
+    float: right;
+    color: white;
+    background-color: #0dc67a;
+    width: 72px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    margin-top: 4px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+.sellout{
+    float: right;
+    color: white;
+    background-color: #aaaaaa;
+    width: 72px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    margin-top: 4px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+.unsell{
+    float: right;
+    color: white;
+    background-color: #ff9600;
+    width: 72px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    margin-top: 4px;
+    font-size: 15px;
+    border-radius: 4px;
+}
